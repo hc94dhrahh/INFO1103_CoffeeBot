@@ -15,8 +15,8 @@ public class CoffeeBot {
     static final int[] MONEY = new int[]{10000, 5000, 2000, 1000, 500, 200, 100, 50, 20, 10, 5};
     static final String[] MONEY_FORMAT = new String[]{"$100.00", "$50.00", "$20.00", "$10.00"
             , "$5.00", "$2.00", "$1.00", "$0.50", "$0.20", "$0.10", "$0.05"};
-    static final int CUPS = 200;
-    static final int SHOTS = 100;
+    static final int CUPS_PRICE = 200;
+    static final int SHOTS_PRICE = 100;
     static String pay;
 
     public static void main(String[] args) {
@@ -65,9 +65,9 @@ public class CoffeeBot {
         System.out.println("Pricing");
         System.out.println("-------");
 
-        System.out.println("$" + String.format("%.2f", (float) CUPS / 100)
+        System.out.println("$" + String.format("%.2f", (float) CUPS_PRICE / 100)
                 + " per cup and there is " + stock[0] + " in stock.\n"
-                + "$" + String.format("%.2f", (float) SHOTS / 100)
+                + "$" + String.format("%.2f", (float) SHOTS_PRICE / 100)
                 + " per shot in each cup and there is "
                 + stock[1] + " in stock.\n");
 
@@ -143,10 +143,10 @@ public class CoffeeBot {
 
         for (int orderCups = 1; orderCups <= numberCups; orderCups++) {
             System.out.print("Cup " + orderCups + " has " + cupNarray[orderCups] + " shots which will cost you $");
-            System.out.println(String.format("%.2f", ((float) (CUPS + (cupNarray[orderCups] * SHOTS)) / 100)));
+            System.out.println(String.format("%.2f", ((float) (CUPS_PRICE + (cupNarray[orderCups] * SHOTS_PRICE)) / 100)));
         }
 
-        int totPrice = ((totShots * SHOTS) + (numberCups * CUPS));
+        int totPrice = ((totShots * SHOTS_PRICE) + (numberCups * CUPS_PRICE));
 
         if(cupIDarray.length == 2){
             System.out.println(numberCups + " coffee to purchase.");
